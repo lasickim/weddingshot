@@ -82,13 +82,13 @@
                 //     console.log(data);
                 // }
 
-                jsonp('http://spreadsheets.google.com/a/google.com/tq?key=1IiG85JRLrQeuazLTamURAA9abxipjrAIop8bj5NCCZg&tq=select%20*%20&tqx=responseHandler:my_callback');
+                // jsonp('http://spreadsheets.google.com/a/google.com/tq?key=1IiG85JRLrQeuazLTamURAA9abxipjrAIop8bj5NCCZg&tq=select%20*%20&tqx=responseHandler:my_callback');
 
             var query = function(sql, callback)
                 {
                 var url = 'http://spreadsheets.google.com/a/google.com/tq?',
                 params = {
-                    key: '2PACX-1vQMnEkccRRsRtkxwrrKBxVuLhdLN8GcXNjnOBBVsaKqYWBVOi4gW8tJVVAtvVLmd0eAsTwKvRx5msiG',
+                    key: '1IiG85JRLrQeuazLTamURAA9abxipjrAIop8bj5NCCZg',
                     tq: encodeURIComponent(sql),
                     tqx: 'responseHandler:' + callback
                 },
@@ -140,6 +140,7 @@
 
             }
             var datas = [];
+            query('select *', 'my_callback')
             // window.onscroll = function(e){
             //     if((window.innerHeight + window.scrollY) >= document.body.offsetHeight){
             //             img[i] = new Image();

@@ -3,7 +3,7 @@
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <style>
-            div>img{
+            div>a>img{
                 float: left;
                 width : 310;
                 margin-left: 10px;
@@ -119,20 +119,25 @@
                 var iplus;
                 for(i = 1; i < 20; i++){
                     photo_id[i] = data[i].Id
+                    var atag = document.createElement('a');
+                    atag.setAttribute('href', data[i].URL)
+                    atag.setAttribute('target', '_blank')
                     img[i] = new Image();
                     img[i].src = 'https://drive.google.com/uc?id=' + photo_id[i]
-                    // img[i].onclick(this) = openimg(this); 
-                    div.append(img[i])
+                    atag.appendChild(img[i])
+                    div.append(atag)
                 }
                 window.onscroll = function(e){
                     if((window.innerHeight + window.scrollY) >= document.body.offsetHeight){
-                        //for(i = i; i < iplus; i++){
-                            photo_id[i] = data[i].Id
-                            img[i] = new Image();
-                            img[i].src = 'https://drive.google.com/uc?id=' + photo_id[i]
-                            div.append(img[i])
-                            i++
-                        //}
+                        var atag = document.createElement('a');
+                        atag.setAttribute('href', data[i].URL)
+                        atag.setAttribute('target', '_blank')
+                        photo_id[i] = data[i].Id
+                        img[i] = new Image();
+                        img[i].src = 'https://drive.google.com/uc?id=' + photo_id[i]
+                        atag.appendChild(img[i])
+                        div.append(atag)
+                        i++
                     }
                 }
                 // function openimg(this){
